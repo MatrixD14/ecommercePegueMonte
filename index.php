@@ -1,0 +1,52 @@
+<?php
+if (php_sapi_name() === 'cli-server') {
+    $file = __DIR__ . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+    if (is_file($file))
+        return false;
+}
+ob_start();
+header('Content-Type: text/html; charset=UTF-8');
+define('APP', true);
+if (session_status() === PHP_SESSION_NONE)
+    session_start();
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$staticDirs = ['css', 'js', 'img', 'fonts', 'pdf'];
+
+foreach ($staticDirs as $dir) {
+    if (strpos($path, "/$dir/") !== false) {
+        $base = realpath(__DIR__ . '/app/view');
+
+        $file = realpath($base . $path);
+
+        if ($file && str_starts_with($file, $base) && is_file($file)) {
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            $mime = [
+                'css' => 'text/css; charset=UTF-8',
+                'js' => 'application/javascript; charset=UTF-8',
+                'pdf' => 'application/pdf',
+                'png' => 'image/png',
+                'jpg' => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'gif' => 'image/gif',
+                'svg' => 'image/svg+xml',
+            ];
+
+            header('Content-Type: ' . ($mime[$ext] ?? 'application/octet-stream'));
+            readfile($file);
+            exit;
+        }
+    }
+}
+require_once __DIR__ . '/bootstrap.php';
+$uri = rtrim($path, '/');
+if ($uri === '') $uri = '/';
+if ($uri === '/') {
+    require __DIR__ . '/app/view/site.php';
+    exit;
+}
+
+$HomeGenciador = __DIR__ . '/app/view/vendor/layout/main.php';
+if ($uri === "/loja") {
+    require $HomeGenciador;
+    exit;
+}

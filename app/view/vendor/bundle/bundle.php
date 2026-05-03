@@ -1,0 +1,1 @@
+<script src="/app/view/vendor/layout/js/ajax.js"></script>
