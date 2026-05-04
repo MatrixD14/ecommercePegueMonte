@@ -1,0 +1,164 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f172a;
+    color: #fff;
+    z-index: 1001;
+    position: sticky;
+    top: 0;
+}
+.NameSite {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #fff;
+}
+.menu-sms,
+.menu-Sair,
+.menu-oculto {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.menu-icon {
+    display: none;
+}
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 10px;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    stroke-width: 2;
+    stroke: currentColor;
+    fill: none;
+}
+
+.menu-list li a,
+.menu-tabela-list li a {
+    border-bottom: #f4f4f4 1px solid;
+    padding: 10px 40px 10px 10px;
+}
+
+.menu-list li:not(.menu-info):hover,
+.menu-tabela-list li:hover {
+    background-color: #555;
+}
+.menu-privilegio {
+    font-size: 12px;
+    color: #94a3b8;
+    padding-left: 10px;
+}
+.menu-login-list,
+.menu-tabela-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1e293b;
+    color: #fff;
+    padding: 1px 0;
+    margin: 0;
+    border: #fff 1px solid;
+    border-radius: 0 0 5px 5px;
+    min-width: 150px;
+    list-style: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.menu-login.open .menu-login-list,
+.menu-tabela.open .menu-tabela-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.effect-button-link {
+    color: inherit;
+    text-decoration: none;
+}
+.button-menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        background: #1e293b;
+    }
+}
+.icon-seta-baixa {
+    transition: transform 0.3s ease;
+}
+.menu-tabela.open .icon-seta-baixa {
+    transform: rotate(180deg);
+}
+
+.menu-list li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.menu-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid #334155;
+    cursor: default;
+}
+.menu a.active {
+    background: #4f46e5;
+    color: #fff;
+}
+@media (max-width: 768px) {
+    .menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        width: 220px;
+        padding: 10px;
+        border-radius: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: 0.3s ease;
+        z-index: 10;
+    }
+
+    .menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+}
+.bem-vindo {
+    color: #fff;
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

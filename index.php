@@ -50,3 +50,17 @@ if ($uri === "/loja") {
     require $HomeGenciador;
     exit;
 }
+$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+if ($uri === "/carinho") {
+    if ($isAjax) {
+        require __DIR__ . "/app/view/vendor/carinho/carinho.php";
+    } else  require $HomeGenciador;
+    exit;
+}
+if ($uri === "/form") {
+    // if ($isAjax) {
+    require __DIR__ . "/app/view/vendor/formularioa/local.php
+";
+    // } else  require $HomeGenciador;
+    exit;
+}
