@@ -27,6 +27,8 @@ if (!$isAjax) {
         $uri = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
         if ($uri === "/carinho") {
             require __DIR__ . "/../carinho/carinho.php";
+        } else if ($uri === "/form") {
+            require __DIR__ . "/../formularioa/local.php";
         } else {
             echo "<div class='bem-vindo'><h1>Bem-vindo ao Agendamento de Sala</h1></div>";
         }

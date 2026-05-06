@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
                 <a class="effect-button-link button-menu ajax-link <?= $uri === '/carinho' ? 'active' : '' ?>" href="/carinho">
                     <svg class="icon">
                         <use href="#icon-carinho-mercado"></use>
-                    </svg> <?= !$_SESSION["espera"] ? 0 : $_SESSION["espera"] ?>
+                    </svg> <?= !$_SESSION["espera"] ? "vazio" : $_SESSION["espera"] ?>
                 </a>
 
             </p>

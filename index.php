@@ -58,9 +58,8 @@ if ($uri === "/carinho") {
     exit;
 }
 if ($uri === "/form") {
-    // if ($isAjax) {
-    require __DIR__ . "/app/view/vendor/formularioa/local.php
-";
-    // } else  require $HomeGenciador;
+    if ($isAjax) {
+        require __DIR__ . "/app/view/vendor/formularioa/local.php";
+    } else  require $HomeGenciador;
     exit;
 }
