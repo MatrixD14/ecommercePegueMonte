@@ -25,12 +25,15 @@ if (!$isAjax) {
     <main class="content">
         <?php
         $uri = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-        if ($uri === "/carinho") {
-            require __DIR__ . "/../carinho/carinho.php";
-        } else if ($uri === "/form") {
-            require __DIR__ . "/../formularioa/local.php";
+
+        $fileRoutes = [
+            '/carinho' => __DIR__ . "/../carinho/carinho.php",
+            '/form' =>  __DIR__ . '/../formularioa/local.php',
+        ];
+        if (isset($fileRoutes[$uri])) {
+            require $fileRoutes[$uri];
         } else {
-            echo "<div class='bem-vindo'><h1>Bem-vindo ao Agendamento de Sala</h1></div>";
+            require __DIR__ . '/../loja/loja.php';
         }
         ?>
     </main>

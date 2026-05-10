@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="/loja" class="centro">
+    <form action="/PengueMonte" class="centro">
         <h1 class="textcentro">
             Seja bem-vindo ao Aluguel Pegue e Monte
         </h1>

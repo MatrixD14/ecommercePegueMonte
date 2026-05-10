@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <nav class="topbar">
-    <a class="NameSite" href="/loja">Pegue e Monte</a>
+    <a class="NameSite" href="/PengueMonte">Pegue e Monte</a>
     <p class="menu-oculto"><svg class="icon menu-icon">
             <use href="#icon-menu" xlink:href="#icon-menu"></use>
         </svg></p>

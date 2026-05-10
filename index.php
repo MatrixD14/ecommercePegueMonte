@@ -40,26 +40,18 @@ foreach ($staticDirs as $dir) {
 require_once __DIR__ . '/bootstrap.php';
 $uri = rtrim($path, '/');
 if ($uri === '') $uri = '/';
-if ($uri === '/') {
-    require __DIR__ . '/app/view/site.php';
-    exit;
-}
-
 $HomeGenciador = __DIR__ . '/app/view/vendor/layout/main.php';
-if ($uri === "/loja") {
-    require $HomeGenciador;
-    exit;
-}
+
 $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
-if ($uri === "/carinho") {
-    if ($isAjax) {
-        require __DIR__ . "/app/view/vendor/carinho/carinho.php";
-    } else  require $HomeGenciador;
-    exit;
-}
-if ($uri === "/form") {
-    if ($isAjax) {
-        require __DIR__ . "/app/view/vendor/formularioa/local.php";
-    } else  require $HomeGenciador;
+
+$fileRoutes = [
+    '/' => __DIR__ . '/app/view/site.php',
+    '/PengueMonte' => $HomeGenciador,
+    '/carinho' => $isAjax ? __DIR__ . "/app/view/vendor/carinho/carinho.php" : $HomeGenciador,
+    '/form' => $isAjax ? __DIR__ . '/app/view/vendor/formularioa/local.php' : $HomeGenciador,
+];
+
+if (isset($fileRoutes[$uri])) {
+    require $fileRoutes[$uri];
     exit;
 }
