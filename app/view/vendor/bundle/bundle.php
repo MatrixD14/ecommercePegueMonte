@@ -4,3 +4,4 @@
 
 <script src="/app/view/vendor/layout/js/localPost.js"></script>
 <script src="/app/view/vendor/formularioa/js/verlocal.js"></script>
+<script src="/app/view/vendor/loja/js/gerarCard.js"></script>

@@ -17,10 +17,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #172234;
     min-height: 100vh;
-    min-height: 100dvh;
+    /* min-height: 100dvh; */
 }
 .content {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     position: relative;

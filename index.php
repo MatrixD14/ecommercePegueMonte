@@ -50,7 +50,11 @@ $fileRoutes = [
     '/carinho' => $isAjax ? __DIR__ . "/app/view/vendor/carinho/carinho.php" : $HomeGenciador,
     '/form' => $isAjax ? __DIR__ . '/app/view/vendor/formularioa/local.php' : $HomeGenciador,
 ];
-
+if ($uri === '/produtos') {
+    $controller = new ProductController();
+    $controller->outputJson();
+    exit;
+}
 if (isset($fileRoutes[$uri])) {
     require $fileRoutes[$uri];
     exit;

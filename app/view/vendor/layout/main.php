@@ -14,6 +14,7 @@ if (!$isAjax) {
         <link rel="stylesheet" href="/app/view/vendor/layout/css/main.css">
         <link rel="stylesheet" href="/app/view/vendor/layout/css/footer.css">
         <link rel="stylesheet" href="/app/view/vendor/layout/css/hearder.css">
+        <link rel="stylesheet" href="/app/view/vendor/loja/css/cards.css">
         <title>loja</title>
     </head>
 

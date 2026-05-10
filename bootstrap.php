@@ -18,5 +18,8 @@ ini_set('log_errors', '1');
 error_reporting(E_ALL);
 
 require_once 'app/model/Env.php';
+require_once __DIR__ . '/app/model/loandPHPMailer.php';
+require_once __DIR__ . '/app/model/EnviaInforEmail.php';
+require_once __DIR__ . '/app/controller/uploadImg.php';
 
 Env::load(__DIR__ . '/.env');
