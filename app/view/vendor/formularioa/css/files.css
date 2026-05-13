@@ -1,0 +1,22 @@
+.fake-file-field {
+    cursor: pointer;
+    background-color: #fff;
+    /* A classe .input-dados já define o resto */
+}
+
+.current-file-info {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.delete-file-checkbox {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.delete-file-checkbox input {
+    width: auto;
+    margin: 0;
+}

@@ -6,7 +6,7 @@ class ProductController
 
     public function __construct($uploadDir = null)
     {
-        $this->uploadDir = $uploadDir ?: __DIR__ . '/../../uploads/';
+        $this->uploadDir = $uploadDir ?: __DIR__ . '/../../../uploads/';
     }
 
     public function getProducts()

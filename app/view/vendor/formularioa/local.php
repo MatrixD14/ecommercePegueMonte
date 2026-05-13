@@ -1,4 +1,4 @@
-<div class="painel-wrapper">
+<!-- <div class="painel-wrapper">
     <div class="alert-cep" role="alert">
         Por favor, insira um cep valido.
     </div>
@@ -13,4 +13,28 @@
         </div>
         <button type="submit"> Enviar</button>
     </form>
-</div>
+</div> -->
+<?php
+// Exemplo de uso em uma página
+$user = ['privilegio' => 'admin', 'id' => 1, 'nome' => 'João'];
+$form = new FormEngine('produtos', $_GET['id'] ?? null, $user);
+
+// Para processar o envio (você mesmo pode implementar o salvamento)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Pega os dados do $_POST e $_FILES
+    // Valida e salva no banco (não incluso nesta classe)
+} ?>
+<div class="painel-wrapper">
+    <form class="Painel">
+        <div class="top-Painel">
+            <h3>Produtos</h3>
+            <hr>
+        </div>
+        <div class="editar-dados">
+            <?= $form->render() ?>
+        </div>
+        <div class="buttons-cal-conf">
+            <button type="button" onclick="buttonVoltar()" id="cancel">Cancelar</button>
+            <button id="confirm">Confirmar</button>
+        </div>
+    </form>

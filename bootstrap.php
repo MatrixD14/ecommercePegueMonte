@@ -18,8 +18,12 @@ ini_set('log_errors', '1');
 error_reporting(E_ALL);
 
 require_once 'app/model/Env.php';
+Env::load(__DIR__ . '/.env');
+require_once __DIR__ . "/app/model/conxeodabase.php";
 require_once __DIR__ . '/app/model/loandPHPMailer.php';
 require_once __DIR__ . '/app/model/EnviaInforEmail.php';
-require_once __DIR__ . '/app/controller/uploadImg.php';
+require_once __DIR__ . '/app/controller/geraForm/FieldRenderer.php';
+require_once __DIR__ . '/app/controller/geraForm/RelationResolver.php';
+require_once __DIR__ . '/app/controller/geraForm/FormEngine.php';
 
-Env::load(__DIR__ . '/.env');
+require_once __DIR__ . '/app/controller/transtaImg/uploadImg.php';
