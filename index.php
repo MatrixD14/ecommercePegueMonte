@@ -41,6 +41,8 @@ require_once __DIR__ . '/bootstrap.php';
 $uri = rtrim($path, '/');
 if ($uri === '') $uri = '/';
 $HomeGenciador = __DIR__ . '/app/view/vendor/layout/main.php';
+$AddForm = __DIR__ . '/app/view/vendor/formularioa/formAdd.php';
+$currentTable = null;
 
 $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
 
@@ -49,13 +51,23 @@ $fileRoutes = [
     '/PengueMonte' => $HomeGenciador,
     '/carinho' => $isAjax ? __DIR__ . "/app/view/vendor/carinho/carinho.php" : $HomeGenciador,
     '/form' => $isAjax ? __DIR__ . '/app/view/vendor/formularioa/local.php' : $HomeGenciador,
+    '/categorias' =>  $isAjax ? $AddForm : $HomeGenciador,
+    '/produtos' =>  $isAjax ? $AddForm : $HomeGenciador,
+    // '/categorias' =>   $AddForm,
+    // '/produtos' =>   $AddForm,
 ];
-if ($uri === '/produtos') {
+if ($uri === '/listprodutos') {
     $controller = new ProductController();
     $controller->outputJson();
     exit;
 }
 if (isset($fileRoutes[$uri])) {
+    $currentTable = ltrim($uri, '/');
     require $fileRoutes[$uri];
+    exit;
+}
+if ($uri === '/processCategoria') {
+    if (!categorias::inserirDados()) header('location: /categorias');
+    else header('location: /carinho');
     exit;
 }

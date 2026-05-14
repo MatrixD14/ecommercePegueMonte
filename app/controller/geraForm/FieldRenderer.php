@@ -42,13 +42,13 @@ class FieldRenderer
 
         $html = '<div class="form-field">';
         if ($type !== 'hidden') {
-            $html .= "<label for='$id'>$label</label></br>";
+            $html .= "<label for='$id'>$label</label>";
         }
         $html .= $fieldHtml;
         if (!empty($config['help'])) {
             $html .= "<small class='field-help'>{$config['help']}</small>";
         }
-        $html .= '</div>';
+        $html .= '</div><br>';
         return $html;
     }
 

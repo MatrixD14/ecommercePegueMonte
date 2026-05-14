@@ -3,46 +3,65 @@ h1 {
     margin-bottom: 1.5rem;
     color: #ddd;
 }
-
+.centroLoja {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.opicaoLoja {
+    width: 250px;
+    min-width: 250px;
+    background: #51548e;
+    padding: 15px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}
 .grid-cards {
+    flex: 1;
+    min-width: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(174px, 1fr));
-    gap: 0.5rem;
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
+    gap: 14px;
+    /* width: 100%; */
 }
 
 .card {
-    width: 174px;
     background: #fff;
     border-radius: 6px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%;
     cursor: pointer;
+    min-width: 0;
 }
 
 .card-imagem {
-    /* width: 174px; */
     width: 100%;
-    height: 174px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     background: #e9ecef;
 }
 
 .card-conteudo {
-    padding: 1rem;
+    padding: 12px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 10px;
 }
 
 .card-titulo {
     font-size: 14px;
     color: #000;
+    line-height: 1.4;
+    transition: 0.2s ease;
     &:hover {
         text-decoration: underline;
     }
@@ -53,14 +72,31 @@ h1 {
     font-weight: bold;
     color: #000;
     margin-top: auto;
-    margin-bottom: 0;
 }
 
-@media (min-width: 400px) {
-    .card {
-        width: 200px;
+@media (max-width: 720px) {
+    .grid-cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+        gap: 10px;
     }
-    .card-imagem {
-        height: 200px;
+
+    .card-conteudo {
+        padding: 10px;
+    }
+
+    .card-preco {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 900px) {
+    .centroLoja {
+        flex-direction: column;
+    }
+
+    .opicaoLoja {
+        width: 100%;
+        min-width: 0;
+        position: static;
     }
 }

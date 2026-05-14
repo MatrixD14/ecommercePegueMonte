@@ -16,7 +16,7 @@
 </div> -->
 <?php
 // Exemplo de uso em uma página
-$user = ['privilegio' => 'admin', 'id' => 1, 'nome' => 'João'];
+$user = ['privilegio' => 'usuario', 'id' => 1, 'nome' => 'João'];
 $form = new FormEngine('produtos', $_GET['id'] ?? null, $user);
 
 // Para processar o envio (você mesmo pode implementar o salvamento)
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Valida e salva no banco (não incluso nesta classe)
 } ?>
 <div class="painel-wrapper">
-    <form class="Painel">
+    <form method="post" class="Painel">
         <div class="top-Painel">
             <h3>Produtos</h3>
             <hr>

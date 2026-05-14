@@ -22,8 +22,11 @@ Env::load(__DIR__ . '/.env');
 require_once __DIR__ . "/app/model/conxeodabase.php";
 require_once __DIR__ . '/app/model/loandPHPMailer.php';
 require_once __DIR__ . '/app/model/EnviaInforEmail.php';
+require_once __DIR__ . '/app/model/insertCategorias.php';
+
 require_once __DIR__ . '/app/controller/geraForm/FieldRenderer.php';
 require_once __DIR__ . '/app/controller/geraForm/RelationResolver.php';
 require_once __DIR__ . '/app/controller/geraForm/FormEngine.php';
+require_once __DIR__ . '/app/controller/cateforias/categorias.php';
 
 require_once __DIR__ . '/app/controller/transtaImg/uploadImg.php';

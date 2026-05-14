@@ -3,6 +3,14 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <nav class="topbar">
     <a class="NameSite" href="/PengueMonte">Pegue e Monte</a>
+    <div id="box-pesquisa">
+        <input type="text" name="pesquisa" id="pesquisa" placeholder="inicia e 2 caracter">
+        <button type="submit">
+            <svg class="icon">
+                <use href="#icon-lupa"></use>
+            </svg>
+        </button>
+    </div>
     <p class="menu-oculto"><svg class="icon menu-icon">
             <use href="#icon-menu" xlink:href="#icon-menu"></use>
         </svg></p>
@@ -12,7 +20,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
                 <a class="effect-button-link button-menu ajax-link <?= $uri === '/carinho' ? 'active' : '' ?>" href="/carinho">
                     <svg class="icon">
                         <use href="#icon-carinho-mercado"></use>
-                    </svg> <?= !$_SESSION["espera"] ? "vazio" : $_SESSION["espera"] ?>
+                    </svg> <?= !isset($_SESSION["espera"]) ? "vazio" : $_SESSION["espera"] ?>
                 </a>
 
             </p>
